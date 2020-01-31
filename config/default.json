@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://Hoz:calterid1@commish-beta-8plni.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "secret"
+}

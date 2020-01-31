@@ -1,0 +1,1 @@
+export const GRAB_ARTISTS = 'GRAB_ARTISTS';

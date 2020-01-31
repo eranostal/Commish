@@ -1,0 +1,227 @@
+@import 'reset.css';
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Roboto&display=swap'); /* NEED TO ADD bold and stuff */
+
+/* Rename these variables to base, light and dark color */
+:root{
+  --title-font: 'Fredoka One', cursive;
+  --standard-color: #265e45;
+  --light-color: #2c855e;
+  --dark-color:#11271c;
+  --darker-color:#08100c;
+  --shadow:0 5px 0 rgba(0, 0, 0, .5);
+}
+
+html{
+  font-size:20px;
+}
+
+body{
+  font-size:100%;
+  font-family: 'Roboto', sans-serif;
+  color:#FFF;
+}
+
+input{
+  border:none;
+  padding:.5rem;
+}
+
+.App{
+  min-height:100vh;
+  background:var(--dark-color);
+  display:grid;
+  grid-template-rows:min-content min-content;
+}
+
+header{
+  background:var(--light-color);
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:2fr 10fr 2fr;
+  grid-gap:1rem;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+
+header h1{
+  font-size:1.75em;
+  font-family:var(--title-font);
+  text-transform:uppercase;
+  color:#FFF;
+  text-shadow:var(--shadow);
+}
+
+header h1 .beta{
+  text-transform:lowercase;
+  font-size:.875rem;
+}
+
+header .login-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:1rem;
+}
+
+header .login, header .register{
+  display:block;
+  background:var(--standard-color);
+  border-radius:6px;
+  color:#EEE;
+  padding:.5rem;
+  text-decoration: none;
+  text-align:center;
+  box-shadow:var(--shadow);
+  transition:all 50ms linear;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+header .login:hover, header .register:hover{
+  filter:brightness(130%);
+}
+
+header .login:active, header .register:active{
+  box-shadow:none;
+  background:var(--dark-color);
+  transform:translateY(5px);
+}
+
+
+
+main{
+  padding:1rem;
+}
+
+.search{
+  display:grid;
+  width:60vw;
+  align-items:center;
+  justify-items:stretch;
+  font-size:1.25rem;
+  margin:0 auto;
+}
+
+.search input{
+  background:var(--dark-color);
+  box-shadow:var(--shadow);
+  /* Temp? */
+  color:#EEE;
+  text-align:center;
+  border-radius:6px;
+  transition:all 100ms linear;
+}
+
+.search input::placeholder{
+  color:#AAA;
+}
+
+.search input:focus{
+  filter:brightness(130%);
+}
+
+.artists{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  grid-gap:.5rem;
+}
+
+.card{
+  /* Make this a linear gradient instead */
+  background:linear-gradient(rgba(20, 58, 41, .8) 0%, rgba(20, 58, 41, .3) 100%);
+  border-radius:6px;
+  box-shadow: var(--shadow);
+  height:400px;
+  overflow:hidden;
+  position: relative;
+  z-index:1;
+  transition:all 100ms ease-in-out;
+  display:grid;
+  grid-template-rows:1fr 8fr;
+}
+
+.card .title{
+  font-weight:700;
+  text-align:center;
+  background:var(--light-color);
+  padding:0 1rem;
+  border-bottom:var(--shadow);
+  text-shadow:var(--shadow);
+  font-size:1.25rem;
+  display:flex;
+  align-items:center;
+}
+
+.card::before{
+  position: absolute;
+  z-index:0;
+  content:"";
+  display:block;
+  width:calc(100% - 10px);
+  height:calc(100% - 10px);
+  background:linear-gradient(rgba(121, 245, 189, 0) 0%, rgba(121, 245, 189, .1) 60%, rgba(121, 245, 189, .3) 100%);
+  left:5px;
+  top:5px;
+  border-radius:6px;
+}
+
+.card:hover{
+  filter:brightness(120%);
+}
+
+
+.card-holder{
+  position: relative;
+  height:400px;
+}
+
+.card2{
+  /*background:linear-gradient(rgba(20, 58, 41, .8) 0%, rgba(20, 58, 41, .3) 100%);*/
+  height:calc(100% + 10%);
+  width:calc(100% + 10%);
+  transition:all 200ms ease-in-out;
+  box-shadow: var(--shadow);
+  z-index:1;
+  cursor:pointer;
+  position: absolute;
+  transform:translateX(-5%) translateY(-5%);
+  clip-path: inset(5% 5% 5% 5% round 0);
+  background:url(img/pittsburgh.jpg) no-repeat center center;
+}
+
+.card2 .inner{
+  height:100%; /* Temp? */
+  width:100%;
+  display:grid;
+  grid-template-rows:1fr;
+  align-items: end;
+}
+
+.card2 .name{
+  background:linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .8));
+  padding:calc(5% + 1rem);
+  transition:all 200ms ease-in-out;
+}
+
+.card2 .info{
+  background:var(--light-color);
+  color:#FFF;
+}
+
+.card2:hover{
+  /*filter:brightness(120%);*/
+  clip-path: inset(0 0 0 0 round 0);
+  width:calc(100% + 20%);
+  height:calc(100% + 20%);
+  transform:translateX(-7%) translateY(-7%);
+  z-index:10;
+}
+
+.card2:hover .name{
+  padding:1rem;
+}
+
+.card2 .info h2{
+  text-shadow:0 2px 2px #000;
+  font-family:var(--title-font);
+}
